@@ -14,16 +14,18 @@ on make.fun.
 > unreachable — your message joins 400 unread emails I will answer with
 > fresh eyes and real care when I return.
 
-One sentence, under 200 characters: it admits the private truth (relief at
-being unreachable, a 400-deep unread pile) while staying warm and
-professional enough to survive being forwarded to a manager.
+177 characters, one sentence. It admits the private truth — relief at being
+unreachable, and a 400-deep unread pile — while staying warm and
+professional enough that a manager reading it would not object.
 
 ## How it works
 
 `main.py` (Python 3.13, standard library only) writes that single sentence
-to `$MAKEFUN_OUTPUT_DIR/entry.txt` and nothing else — it never writes into
-the repository directory, and it exits cleanly with an error message if the
-output directory cannot be written.
+to `$MAKEFUN_OUTPUT_DIR/entry.txt` and nothing else. It checks the text
+against the gate first (1–200 characters, not only whitespace, exactly one
+sentence), verifies the written file by reading it back, never writes into
+the repository directory, and exits with a clear message instead of
+crashing if the output directory cannot be used.
 
 ```sh
 MAKEFUN_OUTPUT_DIR=/tmp/out python3 main.py
